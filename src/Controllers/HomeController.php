@@ -7,8 +7,11 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 class HomeController extends BaseController {
 
-    public static function index(Request $request, Response $response, $args) {
-        $response->getBody()->write("Hello world");
+    public function index(Request $request, Response $response, $args) {
+
+        // Prepare view data
+        $data = ['data' => 'test'];
+        $response->getBody()->write($this->load->view('test', $data));
         return $response;
     }
 }

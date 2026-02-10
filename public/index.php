@@ -11,7 +11,8 @@ $app->addRoutingMiddleware();
 
 // Routes
 $app->get('/', function (Request $request, Response $response, $args) {
-    return HomeController::index($request, $response, $args);
+    $cont = new HomeController();
+    return $cont->index($request, $response, $args);
 });
 
 $app->run();
