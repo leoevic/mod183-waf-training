@@ -6,7 +6,8 @@ RUN apt-get install apache2 apache2-utils mysql-server php libapache2-mod-php -y
 RUN apt clean
 
 # Apache config
-COPY ./apache2.conf /etc/apache2/apache2.conf
+COPY ./config/apache2.conf /etc/apache2/apache2.conf
+COPY ./config/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite
 
 EXPOSE 80

@@ -5,7 +5,6 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ../develop:/var/www/html
-      - ../apache2config/apache2/sites-available:/etc/apache2/sites-available
+      - ../:/var/www/html
     ports:
       - 80:80
