@@ -1,0 +1,11 @@
+{
+    "name": "bfo/develop",
+    "description": "Mod183 WAF training",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Bfo\\Develop\\": "src/"
+        }
+    },
+    "require": {}
+}
