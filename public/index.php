@@ -5,6 +5,7 @@ use Slim\Factory\AppFactory;
 use App\Controllers\HomeController;
 
 require(__DIR__ . "/../vendor/autoload.php");
+require(__DIR__ . "/../src/Config/constants.php");
 
 $app = AppFactory::create();
 $app->addRoutingMiddleware();

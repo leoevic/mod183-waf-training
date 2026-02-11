@@ -11,7 +11,7 @@ class HomeController extends BaseController {
 
         // Prepare view data
         $data = ['data' => 'test'];
-        $response->getBody()->write($this->load->view('test', $data));
+        $response->getBody()->write($this->load->view('default.php', $data));
         return $response;
     }
 }
