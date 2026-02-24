@@ -8,12 +8,15 @@ class Authentication {
 
     private static $instance;
     private $authentication;
+    private $session;
+    private $db;
 
     /**
      * Constructor
      */
     private function __construct() {
-
+        $this->session = Session::getInstance();
+        $this->db = Database::get();
     }
 
     /**
@@ -32,7 +35,7 @@ class Authentication {
     public function login($username, $password) {
         // First, get user from db
         $sql = "SELECT * FROM users WHERE username = '$username';";
-        $data = Database::get()->query($sql);
+        $data = $this->db->query($sql);
 
         // Check if data exists
         if (count($data) != 1) return FALSE;
@@ -40,7 +43,7 @@ class Authentication {
 
         // Check if password is correct
         if ($password == $user['password']) {
-            Session::getInstance()->set('user', $user);
+            $this->session->set('user', $user);
             return TRUE;
         }
 
