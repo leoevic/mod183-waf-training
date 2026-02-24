@@ -14,6 +14,13 @@ require(__DIR__ . "/../src/Config/constants.php");
 $dotenv = Dotenv::createImmutable(GLOBAL_PATH);
 $dotenv->load();
 
+// Toggle logs if environment is development
+if ($_ENV['ENVIRONMENT'] == 'development') {
+    ini_set('display_startup_errors', 'On');
+    ini_set('display_errors', 'On');
+    error_reporting(-1);
+}
+
 // Connect to database
 Database::initialize(
     $_ENV['DATABASE_HOST'],
