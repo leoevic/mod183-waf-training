@@ -33,9 +33,8 @@ class Loader {
         extract($args);
 
         // Load default view
-        ob_clean();
         ob_start();
-        require_once VIEW_PATH . "/" . $name;
+        require VIEW_PATH . "/" . $name;
         return ob_get_clean();
     }
 }
