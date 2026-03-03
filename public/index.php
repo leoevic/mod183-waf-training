@@ -45,5 +45,13 @@ $app->post('/login', function (Request $request, Response $response, $args) {
     $cont = new LoginController();
     return $cont->checkLogin($request, $response, $args);
 });
+$app->get('/register', function (Request $request, Response $response, $args) {
+    $cont = new LoginController();
+    return $cont->register($request, $response, $args);
+});
+$app->post('/register', function (Request $request, Response $response, $args) {
+    $cont = new LoginController();
+    return $cont->checkRegister($request, $response, $args);
+});
 
 $app->run();

@@ -72,7 +72,7 @@ class Database {
 
         // Columns
         $columns = array_keys($data);
-        $columns = implode(", ", $data);
+        $columns = implode(", ", $columns);
         $query .= $columns . ') VALUES ("';
 
         // Values

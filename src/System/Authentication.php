@@ -49,4 +49,32 @@ class Authentication {
 
         return FALSE;
     }
+
+    /**
+     * Register user
+     */
+    public function register($username, $email, $password, $name) {
+        // First, check if user with username already exists
+        $sql = "SELECT * FROM users WHERE username = '$username' OR email = '$email';";
+        $data = $this->db->query($sql);
+
+        // Check if data exists
+        if (count($data) > 0) return FALSE;
+
+        // Create new user
+        $user = [
+            'username' => $username,
+            'name' => $name,
+            'email' => $email,
+            'password' => $password,
+            'created_at' => date('Y-m-d H:i:s'),
+            'modified_at' => date('Y-m-d H:i:s')
+        ];
+
+        // Insert user
+        $this->db->insert('users', $user);
+
+        // Login
+        return $this->login($username, $password);
+    }
 }
