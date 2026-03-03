@@ -15,9 +15,10 @@
 
                 <div class="d-flex">
                     <?php if ($this->auth->isLoggedIn()) { ?>
-                        <a class="button button-primary" href="/logout">Abmelden</a>
+                        <a class="btn btn-primary" href="/logout">Abmelden</a>
                     <?php } else { ?>
-                        <a class="button button-primary" href="/login">Anmelden</a>
+                        <a class="btn btn-primary" href="/login">Anmelden</a>
+                        <a class="button button-primary" href="/register">Registrieren</a>
                     <?php } ?>
                 </div>
             </div>

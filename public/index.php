@@ -2,7 +2,7 @@
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
-use App\Controllers\HomeController;
+use App\Controllers\PostController;
 use App\Controllers\LoginController;
 use App\System\Database;
 use Dotenv\Dotenv;
@@ -34,7 +34,7 @@ $app->addRoutingMiddleware();
 
 // Routes
 $app->get('/', function (Request $request, Response $response, $args) {
-    $cont = new HomeController();
+    $cont = new PostController();
     return $cont->index($request, $response, $args);
 });
 $app->get('/login', function (Request $request, Response $response, $args) {
@@ -56,6 +56,10 @@ $app->post('/register', function (Request $request, Response $response, $args) {
 $app->get('/logout', function(Request $request, Response $response, $args) {
     $cont = new LoginController();
     return $cont->logout($request, $response, $args);
+});
+$app->post('/post/create', function(Request $request, Response $response, $args) {
+    $cont = new PostController();
+    return $cont->createPost($request, $response, $args);
 });
 
 $app->run();
