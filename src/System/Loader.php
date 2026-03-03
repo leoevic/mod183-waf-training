@@ -1,7 +1,15 @@
 <?php
 namespace App\System;
+use App\System\Authentication;
 
 class Loader {
+
+    private Authentication $auth;
+
+    public function __construct() {
+        $this->auth = Authentication::getInstance();
+    }
+
     /**
      * Load view
      */

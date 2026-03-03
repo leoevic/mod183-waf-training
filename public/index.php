@@ -53,5 +53,9 @@ $app->post('/register', function (Request $request, Response $response, $args) {
     $cont = new LoginController();
     return $cont->checkRegister($request, $response, $args);
 });
+$app->get('/logout', function(Request $request, Response $response, $args) {
+    $cont = new LoginController();
+    return $cont->logout($request, $response, $args);
+});
 
 $app->run();

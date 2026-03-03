@@ -12,6 +12,14 @@
         <nav class="navbar bg-body-tertiary mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand mb-0 h1">Zwitscher</a>
+
+                <div class="d-flex">
+                    <?php if ($this->auth->isLoggedIn()) { ?>
+                        <a class="button button-primary" href="/logout">Abmelden</a>
+                    <?php } else { ?>
+                        <a class="button button-primary" href="/login">Anmelden</a>
+                    <?php } ?>
+                </div>
             </div>
         </nav>
         <div class="container">

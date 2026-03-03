@@ -79,4 +79,16 @@ class LoginController extends BaseController {
 
         return $response;
     }
+
+    /**
+     * Logout user
+     */
+    public function logout(Request $request, Response $response, $args) {
+        $this->auth->logout();
+        $_SESSION['message'] = 'Sie haben sich erfolgreich abgemeldet.';
+        $response = $response->withStatus(303);
+        $response = $response->withHeader('Location', '/');
+
+        return $response;
+    }
 }

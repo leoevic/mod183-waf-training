@@ -77,4 +77,19 @@ class Authentication {
         // Login
         return $this->login($username, $password);
     }
+
+    /**
+     * Check whether a user is logged in
+     */
+    public function isLoggedIn() {
+        return !empty($_SESSION['user']);
+    }
+
+    /**
+     * Logout user
+     */
+    public function logout() {
+        $this->session->unset('user');
+        return TRUE;
+    }
 }
