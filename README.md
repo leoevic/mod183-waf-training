@@ -1,9 +1,15 @@
-# mod183-waf-training
+# Modul 183: WAF Training (insecure PHP application)
 
 > [!WARNING]
-> Do not use this app in a production environment, because it is made unsafe on purpose.
+> Do not use this app in a real production environment, because it is made to be insecure on purpose.
 
-Modul 183: WAF Training (unsafe PHP application)
+## Introduction and usage
+To start the development server, run `docker compose up` in the `/docker` subdirectory.
 
-To start the development server, run `docker compose up` in the development directory<br>
-To use in "production", copy the contents of the develop directory into your webserver root
+To use in "production", copy the contents of the root directory into your webserver root (e.g. `/var/www/html` in Apache2 on Debian/Ubuntu).<br>
+Make sure to set the base path of your web server to the `/public` subdirectory. You may need to enable `mod_rewrite` to be able to use the application.
+
+## Security flaws present
+- SQL Injection
+- XSS
+- No form validation
